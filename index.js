@@ -23,8 +23,13 @@
       let pointer_y = event.clientY - context.canvas.getBoundingClientRect().top;
       let tile_x =  Math.floor(pointer_x/size);
       let tile_y = Math.floor(pointer_y/size);
-      document.getElementById("tile_loc").innerHTML = `Tile X: ${tile_x} Tile Y: ${tile_y}`;
+      
+      let tile_no = tile_y * 16 + tile_x;
+      map[tile_no] = 0;
+
+      document.getElementById("tile_loc").innerHTML = `Tile X: ${tile_x} Tile Y: ${tile_y} Tile No.: ${tile_no}`;
       console.log(tile_x, tile_y)
+      drawMap()
     }
   };
 
